@@ -84,7 +84,7 @@
       let fullName = firstName.concat(" ",lastName,". ","Nice to meet you");
       console.log(fullName);
 
-      // 1. trim() : 문자열의 앞, 뒤 공백을 없애기
+      // 11. trim() : 문자열의 앞, 뒤 공백을 없애기
       // const middleTrim = () => {}   
       let name = "       에이스     2학년       1반         ";
       console.log(name.trim());
@@ -97,6 +97,46 @@
       // console.log(month.padStart(2, "0"));
 
       // 13. padEnd(문자열 최소 길이, "추가할 문자열") : 거의 사용하지 X 
+
+      // 14. charAt(인덱스) : 인덱스에 해당하는 글자 하나를 리턴
+      str = "A00001";
+      if (str.charAt(0) === 'A') {
+        console.log("관리자님 환영합니다.");
+      }
+
+      // 15. charCodeAt() : 인덱스에 해당하는 글자의 유니코드를 리턴
+      str = '힣'
+      console.log(str.charCodeAt(0));
+      str = '가';
+      console.log(str.charCodeAt(0));
+
+      str = 'A00001';
+      console.log(str.charCodeAt(0));
+
+      // ******************* 16. split(파라미터) : 파라미터로 전달받은 문자열을 기준으로 문자열을 쪼갠다
+      // 리턴 타입은 배열
+      let emails = 'john@gmail.com,jane@gmail.com,hone@hanmail.com'; // 서버로부터 json 형식으로 이메일이 전송되어 온다고 가정 
+      let email = emails.split(',');
+      console.log(email);
+
+      // ** 17. startsWith() : 파라미터로 시작하는 여부를 boolean (True or False)으로 반환 
+      let url = "https://website.com";
+      //  https:// 위의 주소가 적절한 웹사이트 주소인지 판별해보시오.
+      let correct = 'https://';
+      // if(url.trim().slice(0, 8).indexOf(correct) === -1){
+      //   console.log("올바르지 않은 주소입니다.");
+      // }
+      // else{
+      //   console.log("올바른 주소입니다.");
+      // }
+      if(url.trim().startsWith(correct)){
+        console.log("적절한 주소입니다.");
+      }
+      else{
+        console.log("적절하지 않은 주소입니다.");
+      }
+
+      // 18. endsWith(): 파라미터로 종료하는지 여부를 boolean으로 반환
       </script>
   </body>
 </html>
