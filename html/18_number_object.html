@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- label : 설명(시각장애인을 생각해서) 이미지 태그의 alt -->
+    <!-- <img src="" alt=""> -->
+    <lable for="n1">숫자1 :</lable> 
+    <input type="number" id="n1" />
+    <br />
+    <label for="n2">숫자2 :</label> 
+    <input type="number" id="n2" />
+    <br />
+    <button onclick="doSum()">계산</button>
+    <p>결과 : <span id="result"></span></p>
+    
+    <script>
+      //Number 객체 냊아 함수
+      let num = 67978;
+      console.log(num);
+
+      //1. toString() : 숫자를 문자열로 변환
+      let strNum = num.toString();
+      console.log(strNum);
+
+      //2. parseInt() : 문자열을 정수로 변환, 전역 함수, 주인이 window(전역 객체)
+      console.log(parseInt(strNum));
+
+      //3. parseFloat() : 문자열을 실수로 변환
+      let f = "1.23456";
+      console.log(f);
+
+      console.log(parseFloat(f));
+
+      //4. toExponential() : 지수표기법
+      let x = 100.3456;
+      console.log(x.toExponential());
+
+      //5. toFixed() :소수점을 몇자리 까지 보여줄 지 정하는 함수(반올림 해줌)
+      console.log(x.toFixed(0)); // 100
+      console.log(x.toFixed(1)); // 100.3
+      console.log(x.toFixed(2)); // 100.35 ===> 반올림
+      console.log(x.toFixed(3)); // 100.346 ===> 반올림
+
+      //6. toPrecision(): 정수와 소수부분을 합쳐서 몇자리 보여줄지 결정하는 함수
+      // console.log(x.toPrecision(0)); error
+      console.log(x.toPrecision(1)); // 1e+2
+      console.log(x.toPrecision(2)); // 1.0e+2
+      console.log(x.toPrecision(3)); // 100
+      console.log(x.toPrecision(4)); // 100.3
+      console.log(x.toPrecision(5)); // 100.35
+      console.log(x.toPrecision(6)); // 100.346
+
+      const doSum = () => {
+        // 1. 아이디가 n1, n2인 값을 가져온다.
+        // 2. 해당 값이 숫자인지 확인하고 숫자가 아니면 숫자로 변환한다.
+        // 3. 두 수를 더한다.
+        // 4. 화면에 결과를 보여준다.
+        let n1 = parseInt(document.getElementById("n1").value);
+        let n2 = parseInt(document.getElementById("n2").value);
+        let res = n1 + n2;
+
+        let result = document.getElementById("result").innerHTML = res; 
+      };
+    </script>
+  </body>
+</html>
