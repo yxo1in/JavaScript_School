@@ -13,7 +13,7 @@
       }
       .table1 th {
         border: 1px solid black;
-        background-color: rgb(247, 201, 237);
+        background-color: rgb(250, 211, 242);
       }
       .table1 td {
         text-align: center;
@@ -23,6 +23,8 @@
   </head>
   <body>
     <select name="drinkType" id="drinkType"></select>
+    <br />
+    <select name="drinkType2" id="drinkType2"></select>
     <br />
     <button onclick="search1()">조회1(문자열)</button>
     <button onclick="search2()">조회2(push, join)</button>
@@ -129,7 +131,8 @@
           { text: "커피", code: "B" },
           { text: "콜라", code: "C" },
         ];
-        types.unshift({text: "주스", code: "D"});
+        // types.unshift({text: "주스", code: "D"});
+        // types.unshift({text: "전체", code: "All"});
         const tag = [];
         for (type of types) {
           tag.push(`<option value="${type.code}">${type.text}</option>`);
@@ -139,6 +142,24 @@
       const tagList = loadDrinkList();
       console.log(tagList);
       document.getElementById("drinkType").innerHTML = tagList.join("");
+
+      const loadDrinkList2 = (text, code) => {
+        const types = [
+          { text: "이온음료", code: "A" },
+          { text: "커피", code: "B" },
+          { text: "콜라", code: "C" },
+        ];
+        if (text) {
+          types.unshift({ text: text, code: code });
+        }
+        const tag = [];
+        for (type of types) {
+          tag.push(`<option value="${type.code}">${type.text}</option>`);
+        }
+        return tag;
+      };
+      const tagList2 = loadDrinkList2("전체", "All");
+      document.getElementById("drinkType2").innerHTML = tagList2.join("");
     </script>
   </body>
 </html>
