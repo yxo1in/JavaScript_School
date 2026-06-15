@@ -315,33 +315,78 @@
         { firstName: "하은", lastName: "장", email: "jang@gmail.com" },
       ];
       // console.log(userList);
-      // 12-1map()을 활용해서 fullName, email을 갖는 newUserList 생성
+      // 12-1. map()을 활용해서 fullName, email을 갖는 newUserList 생성
       const newUserList = userList.map((u) => {
         return {fullName : u.lastName.concat(u.firstName), email : u.email};
       })
       console.log(newUserList)
       // 12-2. map()을 활용해서 products배열을 화면에 표로 나타내기
-      const cutNumber = (price) => {
-        priceArr = price.toString().split("");
-        let cnt = 0;
-        for(let i = priceArr.length-1; i > 0; i--){
-          cnt++;
-          if(cnt % 3 === 0 && i != 0){
-            priceArr.splice(i, 0, ",");
-          }
-        }
-        return priceArr.join("");
-      }
+      // const cutNumber = (price) => {
+      //   priceArr = price.toString().split("");
+      //   let cnt = 0;
+      //   for(let i = priceArr.length-1; i > 0; i--){
+      //     cnt++;
+      //     if(cnt % 3 === 0 && i != 0){
+      //       priceArr.splice(i, 0, ",");
+      //     }
+      //   }
+      //   return priceArr.join("");
+      // }
       products = [
         { id: 1, name: "맥북 프로", category: "electronics", price: 2500000 },
-        { id: 2, name: "아이패드 에어", category: "electronics", price: 900000,},
-        { id: 3, name: "기계식 키보드", category: "accessories", price: 150000,},
+        { id: 2, name: "아이패드 에어", category: "electronics", price: 900000 },
+        { id: 3, name: "기계식 키보드", category: "accessories", price: 150000 },
         { id: 4, name: "허브 매트", category: "accessories", price: 30000 },
       ];
       let productTable = products.map((p) => {
-        return `<tr><td>${p.id}</td><td>${p.name}</td><td>${p.price.toLocaleString()}</td><td>${p.category}</td></tr>`
+        const formatPrice = p.price.toLocaleString();
+        return `<tr><td>${p.id}</td><td>${p.name}</td><td>${formatPrice}</td><td>${p.category}</td></tr>`
       })
       document.getElementById('product-body').innerHTML = productTable.join("");
+      
+      // 13. reduce(p1, p2, p3, p4) : 배열요소의 누적 합을 구하는 함수, 또는 특정한 조건에 해당하는 값만 추출하는 함수
+      /*
+      p1 : 누적 값
+      p2 : 현재 값
+      p3 : 현재 배열 인덱스(생략 가능)
+      p4 : 전체 배열(생략 가능)
+      배열.reduce((p1, p2) => {
+        return 다음 p1에 넘겨줄 값
+      }, 초기값)
+      */
+     products = [
+       { id: 1, name: "맥북 프로", category: "electronics", price: 2500000 },
+       { id: 2, name: "아이패드 에어", category: "electronics", price: 900000 },
+       { id: 3, name: "기계식 키보드", category: "accessories", price: 150000 },
+       { id: 4, name: "허브 매트", category: "accessories", price: 30000 },
+     ];
+     let totalPrice = 0;
+     for(p of products){
+      totalPrice += p.price;
+     }
+     console.log(totalPrice);
+     let sum = products.reduce((sum, p) => {
+      return sum += p.price;
+     }, 0)
+     console.log(sum);
+
+     point = [100, 98, 95, 87, 79, 68];
+     let sumOfPoint = point.reduce((sum, point) => {
+      return sum += point;
+     }, 0)
+     console.log(sumOfPoint);
+
+     const drinkList2 = [
+        { name: "오렌지", price: 1000 },
+        { name: "파워에이드", price: 1200 },
+        { name: "커피", price: 700 },
+        { name: "보리음료", price: 1200 },
+        { name: "코카콜라", price: 1800 },
+      ];
+      let sumOfDrink = drinkList2.reduce((sum, drink) => {
+        return sum += drink.price;
+      }, 0)
+      console.log(sumOfDrink);
     </script>
   </body>
 </html>
