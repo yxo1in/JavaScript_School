@@ -41,3 +41,19 @@ const getIntervalDateFormat = (day, format) => {
   const formatDate = format.split("-");
   return `${String(res.getFullYear()).slice(-formatDate[0].length)}-${String(res.getMonth() + 1).padStart(2, 0)}-${String(res.getDate()).padStart(2, 0)}`;
 };
+
+const getIntervalDateFormat2 = (day, format) => {
+  const currentDate = new Date();
+  const currentTime = currentDate.getTime();
+  const res = new Date(currentTime - 1000 * 60 * 60 * 24 * -day);
+  const splitSign = format.replace(/[A-Z]/g, "").charAt(0);
+  const formatDate = format.split(splitSign);
+  [year, month, date] = formatDate
+  const dateFormat = [
+    String(res.getFullYear()).slice(-year.length),
+    String(res.getMonth() + 1).padStart(2, 0),
+    String(res.getDate()).padStart(2, 0)
+  ]
+  
+  return `${dateFormat.join(splitSign)}`;
+};

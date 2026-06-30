@@ -61,7 +61,11 @@
       // 10. 함수 : getIntervalDateFormat() 오늘을 기준으로 며칠 전, 후를 일정한 형식으로 구하는 함수
       console.log(getIntervalDateFormat(3, "YY-MM-DD"))
       console.log(getIntervalDateFormat(-7, "YYYY-MM-DD"))
-
+      
+      // 11. 함수 : getIntervalDateFormat2() 오늘을 기준으로 며칠 전, 후를 일정한 형식으로 구하는 함수
+      // (/, ., -)기호에 상관 없이
+      console.log(getIntervalDateFormat2(5, "YY/MM/DD"))
+      console.log(getIntervalDateFormat2(5, "YYYY.MM.DD"))
     </script>
   </body>
 </html>
