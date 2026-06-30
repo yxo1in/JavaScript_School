@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //다음 수강생 명단에서 나이가 30세 이상인 사람을 골라라
+      const courseMember = [
+        { name: "John", age: 30, job: "student" },
+        { name: "Brad", age: 45, job: "actor" },
+        { name: "David", age: 24, job: "teacher" },
+      ];
+      const answer = courseMember.filter((m) => {
+        return m.age >= 30;
+      });
+      for (a of answer) {
+        console.log(a.name);
+      }
+    </script>
+  </body>
+</html>

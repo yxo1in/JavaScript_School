@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let department = function (classNum) {
+        let answer = "";
+        const depart = [
+          "바이오화학과",
+          "바이오화학과",
+          "스마트팜학과",
+          "스마트팜학과",
+          "농업기계학과",
+          "농업기계학과",
+        ];
+        answer =
+          classNum <= depart.length
+            ? `${classNum} : ${depart[classNum - 1]}`
+            : `존재하지 않는 학급입니다.`;
+        console.log(answer);
+      };
+      department(1);
+      department(3);
+      department(6);
+      department(8);
+    </script>
+  </body>
+</html>

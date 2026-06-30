@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const birthDayFormat = (birthDay) => {
+        const birth = birthDay.split("/");
+        [year, month, date] = birth;
+        console.log(
+          `${year.slice(-2)}년 ${month.padStart(2, "0")}월 ${date.padStart(2, "0")}일`,
+        );
+      };
+      birthDayFormat("2005/5/3");
+      birthDayFormat("2005/12/7");
+    </script>
+  </body>
+</html>

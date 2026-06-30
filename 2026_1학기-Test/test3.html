@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const parsePhoneNumber = (phoneNumber) => {
+        const p = phoneNumber.split(" ");
+        [international, phone] = p;
+        console.log(`국가번호:${interNational} 전화번호:${phone}`);
+      };
+      parsePhoneNumber("+82 010-0000-0000");
+      parsePhoneNumber("+12 010-1111-1111");
+    </script>
+  </body>
+</html>

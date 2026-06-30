@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    나이가 <input type="text" maxlength="3" id="age" />세 이상인 사람 조회하기
+    <button onclick="doSearch()">조회</button>
+    <br />
+    <div>정답 <span id="result"></span></div>
+
+    <script>
+      const doSearch = () => {
+        const courseMember = [
+          ["John", 30, "student"],
+          ["Brad", 45, "actor"],
+          ["David", 24, "teacher"],
+        ];
+        const inputAge = document.getElementById("age").value;
+        // console.log(inputAge);
+        const answer = [];
+        for (m of courseMember) {
+          [name, age, job] = m;
+          if (age >= inputAge) {
+            answer.push(name);
+          }
+        }
+
+        if (!answer.length) {
+          document.getElementById("result").innerHTML =
+            "해당하는 사람이 없습니다.";
+        } else {
+          document.getElementById("result").innerHTML = answer.join();
+        }
+      };
+    </script>
+  </body>
+</html>
